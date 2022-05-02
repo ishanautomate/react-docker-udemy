@@ -1,0 +1,11 @@
+sudo: required
+services:
+  - docker
+
+
+
+before_install: 
+  - docker build -t ishan68/docker-react-udemy -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true  ishan68/docker-react-udemy npm run test
